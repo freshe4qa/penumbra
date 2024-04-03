@@ -12,8 +12,8 @@ Explorer:
 
 ### Minimum Hardware Requirements
  - 2x CPUs; the faster clock speed the better
- - 2GB RAM
- - 20GB of storage (SSD or NVME)
+ - 4GB RAM
+ - 100GB of storage (SSD or NVME)
  - Ubuntu 22.04
 
 ```
