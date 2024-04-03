@@ -2,7 +2,7 @@
   <img height="100" height="auto" src="https://github.com/freshe4qa/nocturne/assets/85982863/cfae9cab-94b1-4189-9f25-887a4ac62583">
 </p>
 
-# Penumbra — PENUMBRA SUMMONING CEREMONY
+# Penumbra — PENUMBRA SUMMONING CEREMONY PHASE 2
 
 Official documentation:
 >- [Guide](https://summoning.penumbra.zone)
@@ -14,6 +14,7 @@ Explorer:
  - 2x CPUs; the faster clock speed the better
  - 2GB RAM
  - 20GB of storage (SSD or NVME)
+ - Ubuntu 22.04
 
 ```
 sudo apt update && sudo apt upgrade -y
@@ -30,22 +31,20 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source ~/.cargo/env
 ```
 ```
-git clone https://github.com/penumbra-zone/penumbra
-```
-```
-cd penumbra && git fetch && git checkout v0.63.1
-```
-```
-cargo build --release --bin pcli
+curl -sSfL -O https://github.com/penumbra-zone/penumbra/releases/download/v0.71.0/pcli-x86_64-unknown-linux-gnu.tar.xz
+unxz pcli-x86_64-unknown-linux-gnu.tar.xz
+tar -xf pcli-x86_64-unknown-linux-gnu.tar
+sudo mv pcli-x86_64-unknown-linux-gnu/pcli /usr/local/bin/
+pcli --version
 ```
 
 Создаем кошелек
 
 ```
-cargo run --quiet --release --bin pcli init soft-kms generate
+pcli init soft-kms generate
 ```
 ```
-cargo run --quiet --release --bin pcli init soft-kms import-phrase
+pcli init soft-kms import-phrase
 ```
 
 Запрашиваем токены в Discord'e в ветке #testnet-faucet отправив свой адрес кошелька
@@ -57,7 +56,7 @@ screen -S ceremony
 ```
 
 ```
-cargo run --quiet --release --bin pcli -- ceremony contribute --phase 1 --bid 60penumbra --coordinator-address penumbra1qvqr8cvqyf4pwrl6svw9kj8eypf3fuunrcs83m30zxh57y2ytk94gygmtq5k82cjdq9y3mlaa3fwctwpdjr6fxnwuzrsy4ezm0u2tqpzw0sed82shzcr42sju55en26mavjnw4
+pcli ceremony contribute --phase 2 --bid 60penumbra
 ```
 
 Выйти CTRL + A + D
