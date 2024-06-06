@@ -24,18 +24,16 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install make clang pkg-config libssl-dev build-essential tmux -y
 ```
 ```
-sudo apt-get install git-lfs
+sudo apt-get install build-essential pkg-config libssl-dev clang git-lfs
 ```
 ```
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source ~/.cargo/env
 ```
 ```
-curl -sSfL -O https://github.com/penumbra-zone/penumbra/releases/download/v0.71.0/pcli-x86_64-unknown-linux-gnu.tar.xz
-unxz pcli-x86_64-unknown-linux-gnu.tar.xz
-tar -xf pcli-x86_64-unknown-linux-gnu.tar
-sudo mv pcli-x86_64-unknown-linux-gnu/pcli /usr/local/bin/
-pcli --version
+git clone https://github.com/penumbra-zone/penumbra
+cd penumbra && git fetch && git checkout v0.77.2
+cargo build --release
 ```
 
 Создаем кошелек
