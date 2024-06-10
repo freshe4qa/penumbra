@@ -31,9 +31,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source ~/.cargo/env
 ```
 ```
-git clone https://github.com/penumbra-zone/penumbra
-cd penumbra && git fetch && git checkout v0.77.2
-cargo build --release
+curl --proto '=https' --tlsv1.2 -LsSf https://github.com/penumbra-zone/penumbra/releases/download/v0.77.2/pcli-installer.sh | sh
 ```
 
 Создаем кошелек
